@@ -1,0 +1,133 @@
+###############################################################################
+#  KEYBINDINGS — leftwm
+#  Source: ~/.config/leftwm/config.ron + ~/.config/leftwm/sxhkd/sxhkdrc
+#  Generated: 2026.05.30 by /kiro-create-keybindings — DO NOT EDIT BY HAND
+###############################################################################
+
+── 1. Applications & Launchers ───────────────────────────────────────────────
+  super + Return            alacritty (terminal)
+  super + t                 alacritty (terminal)
+  ctrl + alt + Return       alacritty (terminal)
+  ctrl + alt + t            alacritty (terminal)
+  F12                       xfce4-terminal (drop-down terminal)
+  super + KP_Enter          urxvt (terminal)
+  ctrl + alt + End          alacritty -e btop (system monitor)
+  super + shift + Return    thunar (file manager)
+  super + F8                thunar (file manager)
+  ctrl + alt + b            thunar (file manager)
+  ctrl + alt + c            catfish (file search)
+  super + d                 launcher.sh (rofi launcher)
+  super + shift + d         dmenu_run (app launcher)
+  super + F11               rofi drun (fullscreen)
+  super + F12               rofi drun
+  super + r                 rofi-theme-selector
+  ctrl + alt + r            rofi-theme-selector
+  super + e                 code (VS Code)
+  super + F2                code (VS Code)
+  ctrl + alt + e            archlinux-tweak-tool
+  ctrl + alt + p            pamac-manager (package manager)
+  ctrl + alt + m            xfce4-settings-manager
+  ctrl + alt + a            xfce4-appfinder
+  alt + F2                  xfce4-appfinder (collapsed)
+  alt + F3                  xfce4-appfinder
+  ctrl + shift + Escape     xfce4-taskmanager
+  super + F1                vivaldi-stable (browser)
+  ctrl + alt + v            vivaldi-stable (browser)
+  ctrl + alt + g            chromium (browser)
+  ctrl + alt + f            firefox (browser)
+  super + F3                inkscape
+  super + F4                gimp
+  super + F5                meld
+  super + F6                vlc
+  super + F7                virtualbox
+  super + F9                lollypop (music player)
+  super + m                 lollypop (music player)
+  super + F10               spotify
+  ctrl + alt + s            spotify
+
+── 2. Window Management ───────────────────────────────────────────────────────
+  super + q                 close focused window
+  super + shift + q         close focused window
+  super + f                 toggle fullscreen
+  super + k                 focus window up
+  super + j                 focus window down
+  super + shift + k         move window up
+  super + shift + j         move window down
+  super + shift + Up        move window up
+  super + shift + Down      move window down
+  super + Escape            xkill (force-kill a window)
+
+── 3. Workspaces / Tags / Groups ─────────────────────────────────────────────
+  super + 1..9              switch to tag 1–9
+  super + shift + 1..9      send window to tag 1–9
+  super + l                 focus next workspace
+  super + h                 focus previous workspace
+  super + Down              focus next tag
+  super + Up                focus previous tag
+  super + Tab               focus next tag
+  super + shift + Tab       focus previous tag
+  alt + Tab                 focus next tag
+  alt + shift + Tab         focus previous tag
+  ctrl + alt + Right        focus next tag
+  ctrl + alt + Left         focus previous tag
+  ctrl + alt + Down         focus next tag
+  ctrl + alt + Up           focus previous tag
+  super + w                 swap tags
+  super + shift + w         move window to last workspace
+
+── 4. Layout & Tiling ─────────────────────────────────────────────────────────
+  super + space             next layout
+  super + shift + space     previous layout
+  super + ctrl + Up         next layout
+  super + ctrl + Down       previous layout
+
+── 5. Multi-monitor ───────────────────────────────────────────────────────────
+  super + Left              swap screens
+  super + Right             swap screens
+  super + shift + Left      move window to next workspace
+  super + shift + Right     move window to next workspace
+
+── 6. Multimedia & Hardware ───────────────────────────────────────────────────
+  XF86AudioRaiseVolume      volume +10% (amixer)
+  XF86AudioLowerVolume      volume -10% (amixer)
+  XF86AudioMute             toggle mute
+  XF86AudioPlay             play / pause (playerctl)
+  XF86AudioNext             next track (playerctl)
+  XF86AudioPrev             previous track (playerctl)
+  XF86AudioStop             stop (playerctl)
+  XF86MonBrightnessUp       brightness +10 (xbacklight)
+  XF86MonBrightnessDown     brightness -10 (xbacklight)
+  super + v                 pavucontrol (audio mixer)
+  ctrl + alt + u            pavucontrol (audio mixer)
+
+── 7. Screenshots ─────────────────────────────────────────────────────────────
+  Print                     scrot full screen → Pictures
+  ctrl + Print              xfce4-screenshooter
+  ctrl + shift + Print      gnome-screenshot (interactive)
+  super + ctrl + Print      flameshot gui
+
+── 8. System & Session ────────────────────────────────────────────────────────
+  super + x                 archlinux-logout
+  ctrl + alt + k            archlinux-logout
+  ctrl + alt + l            archlinux-logout
+  super + shift + x         edu-powermenu
+  super + shift + r         soft reload leftwm
+  super + shift + s         reload sxhkd
+  super + y                 toggle polybar
+  super + g                 toggle compositor (fastcompmgr)
+  ctrl + alt + i            nitrogen (wallpaper)
+  ctrl + alt + Next         conky-rotate next
+  ctrl + alt + Prior        conky-rotate previous
+  alt + t                   variety: trash wallpaper
+  alt + n                   variety: next wallpaper
+  alt + p                   variety: previous wallpaper
+  alt + f                   variety: favorite wallpaper
+  alt + Left                variety: previous wallpaper
+  alt + Right               variety: next wallpaper
+  alt + Up                  variety: pause slideshow
+  alt + Down                variety: resume slideshow
+  alt + shift + t           variety: trash wallpaper + pywal
+  alt + shift + n           variety: next wallpaper + pywal
+  alt + shift + p           variety: previous wallpaper + pywal
+  alt + shift + f           variety: favorite wallpaper + pywal
+  alt + shift + u           pywal: update colors from wallpaper

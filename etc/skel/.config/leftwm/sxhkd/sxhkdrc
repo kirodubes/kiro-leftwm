@@ -117,6 +117,10 @@ super + shift + s
 ctrl + alt + e
     archlinux-tweak-tool
 
+#obs
+ctrl + alt + d
+    obs
+
 #conky-rotate
 ctrl + alt + Next
      conky-rotate -n

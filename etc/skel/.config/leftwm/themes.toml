@@ -267,14 +267,14 @@ definitions_version = 1
 
 [[repos.themes]]
 name = "kiro"
-directory = "/home/erik/.config/leftwm/themes/kiro"
+directory = "~/.config/leftwm/themes/kiro"
 version = "0.0.0"
 leftwm_versions = "*"
 current = true
 
 [[repos.themes]]
 name = "candy"
-directory = "/home/erik/.config/leftwm/themes/candy"
+directory = "~/.config/leftwm/themes/candy"
 version = "0.0.0"
 leftwm_versions = "*"
 current = false
