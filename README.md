@@ -2,7 +2,7 @@
   <img src="kiro.jpg" alt="Kiro" width="220" />
 </p>
 
-# edu-leftwm
+# kiro-leftwm
 
 A ready-to-run [LeftWM](https://github.com/leftwm/leftwm) setup for Arch / Kiro — the tiling window manager written in Rust, pre-configured with a polybar bar, keybindings, a rofi launcher and a theme so it works the moment you log in. Part of the `~/EDU/` learning series.
 
@@ -34,6 +34,7 @@ Everything lands in `etc/skel/`, so a fresh user account gets a complete LeftWM 
 | Super + f | toggle fullscreen |
 | Super + Shift + r | reload the config |
 | Super + g | toggle the compositor |
+| Super + Ctrl + s | searchable keybindings cheatsheet (kiro-keybindings) |
 | Super + x | logout menu (archlinux-logout) |
 | Ctrl + Alt + e | archlinux-tweak-tool |
 
@@ -55,7 +56,7 @@ Then install LeftWM and this config:
 
 ```bash
 sudo pacman -Syu
-sudo pacman -S edu-leftwm-git leftwm
+sudo pacman -S kiro-leftwm leftwm
 ```
 
 The package drops its files into `/etc/skel/`. New user accounts created afterwards inherit the config automatically; an existing user can pull it in with:
@@ -70,8 +71,8 @@ Log out and pick **LeftWM** from your display manager's session list.
 
 ```bash
 sudo pacman -S leftwm
-git clone https://github.com/erikdubois/edu-leftwm.git
-cd edu-leftwm
+git clone https://github.com/kirodubes/kiro-leftwm.git
+cd kiro-leftwm
 # system-wide, for new accounts:
 sudo cp -r etc/skel/. /etc/skel/
 # or straight into your own home:

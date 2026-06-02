@@ -1,4 +1,4 @@
-# CLAUDE.md — edu-leftwm
+# CLAUDE.md — kiro-leftwm
 
 ## Project Overview
 Educational/tutorial repository for leftwm (a tiling window manager written in Rust).
