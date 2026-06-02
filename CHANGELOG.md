@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 2026.06.02
+
+**What Changed (theme `up` autostart cleanup per the TWM autostart standard)**
+- Fixed a real bug in both theme `up` files (`themes/kiro/up`, `themes/candy/up`): the line `run xfce4-clipman` called a `run()` function that was never defined, so xfce4-clipman silently never started.
+- Added the canonical `run()` helper to both `up` files and converted the whole "diversity of apps" block to use it. Because a theme `up` re-runs on every theme reload — and `down` only kills polybar/fastcompmgr/dunst/volumeicon — bare `app &` launches would duplicate the other tray applets (nm-applet, pamac-tray, power-manager, blueberry, polkit, notifyd, clipman) on reload. The `pgrep`-guarded `run()` prevents that and relaunches the ones `down` does kill.
+- Removed the trailing pile of commented `#caffeine/#firefox/#spotify/...` example launches.
+- Removed the now-redundant manual switch scripts `.bin/give-me-azerty-be-leftwm` and `scripts/toazerty.sh` — the theme `up` already auto-detects a `be` layout and copies `config-azerty.ron` to `config.ron`.
+
+**Technical Details**
+- `run()` = canonical exact-match form `pgrep -x "$(basename "$1" | head -c 15)"`, matching the rest of the TWM family ([Kiro-HQ/AUTOSTART_TEMPLATE.md](/home/erik/Insync/Kiro/Kiro-HQ/AUTOSTART_TEMPLATE.md)).
+- Left all load-bearing leftwm-specific logic untouched: the pywal toggle, the `monitor-layout.sh` call (leftwm's own monitor handling — NOT the `~/.screenlayout` block, since the polybar geometry loop depends on it), the `theme.ron` border fix, the `killall sxhkd` + relaunch, and the polybar multi-monitor loop. These are recorded as leftwm's documented exceptions in the standard.
+- Validated both `up` scripts with `bash -n`.
+
+**Files Modified**
+- etc/skel/.config/leftwm/themes/kiro/up
+- etc/skel/.config/leftwm/themes/candy/up
+- etc/skel/.bin/give-me-azerty-be-leftwm (removed)
+- etc/skel/.config/leftwm/scripts/toazerty.sh (removed)
+
 ## 2026.06.01
 
 **What Changed (global keybinding to open the searchable keybindings cheatsheet)**
