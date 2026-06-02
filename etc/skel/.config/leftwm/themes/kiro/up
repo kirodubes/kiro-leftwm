@@ -33,7 +33,7 @@ ln -s $SCRIPTPATH/down /tmp/leftwm-theme-down
 #setxkbmap -layout be
 keybLayout=$(setxkbmap -v | awk -F "+" '/symbols/ {print $2}')
 
-if [ $keybLayout = "be" ]; then
+if [ "$keybLayout" = "be" ]; then
   cp ~/.config/leftwm/config-azerty.ron ~/.config/leftwm/config.ron
 fi
 

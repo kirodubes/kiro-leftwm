@@ -7,6 +7,7 @@
 - Added the canonical `run()` helper to both `up` files and converted the whole "diversity of apps" block to use it. Because a theme `up` re-runs on every theme reload — and `down` only kills polybar/fastcompmgr/dunst/volumeicon — bare `app &` launches would duplicate the other tray applets (nm-applet, pamac-tray, power-manager, blueberry, polkit, notifyd, clipman) on reload. The `pgrep`-guarded `run()` prevents that and relaunches the ones `down` does kill.
 - Removed the trailing pile of commented `#caffeine/#firefox/#spotify/...` example launches.
 - Removed the now-redundant manual switch scripts `.bin/give-me-azerty-be-leftwm` and `scripts/toazerty.sh` — the theme `up` already auto-detects a `be` layout and copies `config-azerty.ron` to `config.ron`.
+- **Fixed the keyboard auto-detect across both themes:** quoted the test in `themes/kiro/up` (`[ $keybLayout = "be" ]` → `[ "$keybLayout" = "be" ]`, would error on an empty layout), and added the same `be`-detect to `themes/candy/up`, which previously had none — so the candy theme now also auto-loads AZERTY for `be` users. `config.ron` ships QWERTY (world default), so non-`be` users are unaffected.
 
 **Technical Details**
 - `run()` = canonical exact-match form `pgrep -x "$(basename "$1" | head -c 15)"`, matching the rest of the TWM family ([Kiro-HQ/AUTOSTART_TEMPLATE.md](/home/erik/Insync/Kiro/Kiro-HQ/AUTOSTART_TEMPLATE.md)).
