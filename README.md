@@ -13,7 +13,7 @@ LeftWM keeps its configuration as plain text under `~/.config/leftwm/`, so every
 Everything lands in `etc/skel/`, so a fresh user account gets a complete LeftWM desktop:
 
 - **`.config/leftwm/config.ron`** — the main config: Super as the mod key, 9 tags, sloppy focus, and the keybindings below. Also shipped as `config-qwerty.ron` (the default) and `config-azerty.ron` (BE-azerty tag-number keys); switch with `.bin/give-me-azerty-be-leftwm`.
-- **candy theme** (`.config/leftwm/themes/candy`, the active theme) — a polybar bar (clock, CPU, memory, kernel, system tray), feh wallpaper, the `fastcompmgr` compositor, and a conky system overview.
+- **candy theme** (`.config/leftwm/themes/candy`, the active theme) — a polybar bar (clock, CPU, memory, kernel, system tray), feh wallpaper, the `fastcompmgr` compositor.
 - **`.config/leftwm/sxhkd/sxhkdrc`** — extra keybindings handled by sxhkd: function-key app launchers, volume / brightness / media keys, screenshots, and wallpaper control.
 - **rofi launcher** (`.config/leftwm/launcher/`) — the application menu.
 - **`.config/leftwm/themes.toml`** + **`scripts/`** — a registry of LeftWM community and ArcoLinux themes, with helper scripts to install and test them.
@@ -81,7 +81,7 @@ cp -r etc/skel/. ~/
 
 ### Runtime dependencies
 
-The config calls common Arch / Kiro tools — install whatever you are missing: `polybar`, `sxhkd`, `rofi`, `feh`, `fastcompmgr`, `conky`, `dmenu`, `alacritty`, `thunar`, `archlinux-logout`, `variety`. On Kiro these are already present.
+The config calls common Arch / Kiro tools — install whatever you are missing: `polybar`, `sxhkd`, `rofi`, `feh`, `fastcompmgr`, `dmenu`, `alacritty`, `thunar`, `archlinux-logout`, `variety`. On Kiro these are already present.
 
 ## Websites
 

@@ -101,9 +101,6 @@
   XF86MonBrightnessDown     brightness -10 (xbacklight)
   super + v                 pavucontrol (audio mixer)
   ctrl + alt + u            pavucontrol (audio mixer)
-  ctrl + alt + i            nitrogen (wallpaper)
-  ctrl + alt + Next         conky-rotate next
-  ctrl + alt + Prior        conky-rotate previous
   alt + t                   variety: trash wallpaper
   alt + n                   variety: next wallpaper
   alt + p                   variety: previous wallpaper
