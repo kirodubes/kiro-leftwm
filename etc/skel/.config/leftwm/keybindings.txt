@@ -1,7 +1,7 @@
 ###############################################################################
 #  KEYBINDINGS — leftwm
 #  Source: etc/skel/.config/leftwm/config.ron + etc/skel/.config/leftwm/sxhkd/sxhkdrc
-#  Generated: 2026.06.01 by /kiro-keybindings-all-twms — DO NOT EDIT BY HAND
+#  Generated: 2026.06.08 by /kiro-keybindings-all-twms-xfce — DO NOT EDIT BY HAND
 ###############################################################################
 
 ── 1. Applications & Launchers ───────────────────────────────────────────────
@@ -42,7 +42,7 @@
   super + F5                meld
   super + F6                vlc --video-on-top
   super + F7                virtualbox
-  super + F9                lollypop (music player)
+  super + F9                virt-manager (virtual machine manager)
   super + m                 lollypop (music player)
   super + F10               spotify
   ctrl + alt + s            spotify

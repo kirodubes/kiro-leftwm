@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 2026.06.08
+
+### What Changed
+- Rebound `Super + F9` from `lollypop` to `virt-manager`, matching the distro-wide change applied across all Kiro environments. (The stale `#Evolution` comment above the binding was also corrected.)
+
+### Technical Details
+- Edited the `Super + F9` entry in `leftwm/sxhkd/sxhkdrc` (comment + command) and regenerated the cheatsheet (`keybindings.txt` → `keybindings.html` + `keybindings.pdf` via `kiro-keybindings-html.py`).
+
+### Files Modified
+- `etc/skel/.config/leftwm/sxhkd/sxhkdrc`
+- `etc/skel/.config/leftwm/keybindings.txt`
+- `etc/skel/.config/leftwm/keybindings.html`
+- `etc/skel/.config/leftwm/keybindings.pdf`
+
 ## 2026.06.02
 
 **What Changed (theme `up` autostart cleanup per the TWM autostart standard)**
