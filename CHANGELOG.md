@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 2026.06.09
+
+### What Changed
+- The kiro leftwm theme now starts every login on the branded Kiro default wallpaper (`/usr/share/backgrounds/kiro/kiro-wallpaper.jpg`) instead of rotating through a random image from the theme's `backgrounds/` set. The `feh` line in the theme `up` script is now the single, unconditional source of the wallpaper (independent of the pywal color toggle). Random rotation is still available on demand via the right-click polybar wallpaper action (`wall.sh`).
+
+### Technical Details
+- `themes/kiro/up`: moved the `feh --bg-fill /usr/share/backgrounds/kiro/kiro-wallpaper.jpg` call out of the `else` (static) branch so it runs unconditionally after the colors block — the wallpaper is now always the branded default regardless of `use_pywal`.
+- `themes/kiro/scripts/wal.sh`: removed the first-run-marker + `RANDOM`-pick rotation; pywal now derives its colorscheme from the default wallpaper and is invoked with `-n` so it no longer sets a background of its own (the `up` feh call owns the wallpaper, so the two never fight). The no-pywal `feh` fallback branch was likewise changed from `--randomize` over `backgrounds/*` to the same fixed default.
+
+### Files Modified
+- `etc/skel/.config/leftwm/themes/kiro/up`
+- `etc/skel/.config/leftwm/themes/kiro/scripts/wal.sh`
+
 ## 2026.06.08
 
 ### What Changed

@@ -11,20 +11,16 @@ if [ -x "$(command -v wal)" ]; then
     [ ! -f $HOME/.config/wal/templates/color.leftwm-theme.toml ] ; then
         cp -f $HOME/.config/leftwm/themes/current/template-wal/color.leftwm-theme.toml  $HOME/.config/wal/templates
   fi
-    my_array=($HOME/.config/leftwm/themes/current/backgrounds/*)
-        ####my_array=(/usr/share/backgrounds/*)
-
-    # First login shows the Kiro default wallpaper so every fresh install opens
-    # on the same branded image; afterwards rotate randomly through the set.
-    first_run_marker="$HOME/.cache/kiro-first-wallpaper-done"
-    default_wallpaper="$HOME/.config/leftwm/themes/kiro/backgrounds/kiro1.jpg"
-    if [ ! -f "$first_run_marker" ] && [ -f "$default_wallpaper" ]; then
+    # Derive the colorscheme from the branded Kiro default wallpaper. `-n` keeps
+    # wal from setting the background itself — the theme `up` script owns the
+    # wallpaper (feh), so the two never fight.
+    default_wallpaper="/usr/share/backgrounds/kiro/kiro-wallpaper.jpg"
+    if [ -f "$default_wallpaper" ]; then
       wallpaper="$default_wallpaper"
-      touch "$first_run_marker"
     else
-      wallpaper="${my_array[$(( RANDOM % ${#my_array[@]} ))]}"
+      wallpaper="$HOME/.config/leftwm/themes/current/backgrounds/kiro1.jpg"
     fi
-    wal -i "$wallpaper" -a 80
+    wal -n -i "$wallpaper" -a 80
     cat ~/.cache/wal/color.leftwm-theme.toml &&
     ####bat ~/.cache/wal/color.leftwm-theme.ron &&               
     cp -f ~/.cache/wal/color.leftwm-theme.toml $HOME/.config/leftwm/themes/current/theme.toml &&
@@ -33,8 +29,12 @@ if [ -x "$(command -v wal)" ]; then
 
 else
 
-  # Set background
+  # Set the branded default background (pywal not installed).
   if [ -x "$(command -v feh)" ]; then
-    feh --randomize --bg-fill $HOME/.config/leftwm/themes/current/backgrounds/*
+    if [ -f /usr/share/backgrounds/kiro/kiro-wallpaper.jpg ]; then
+      feh --bg-fill /usr/share/backgrounds/kiro/kiro-wallpaper.jpg
+    else
+      feh --bg-fill $HOME/.config/leftwm/themes/current/backgrounds/kiro1.jpg
+    fi
   fi
 fi

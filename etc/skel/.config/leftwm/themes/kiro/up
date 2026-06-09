@@ -40,12 +40,13 @@ fi
 ########## Colors: pywal (dynamic) or static theme.toml #######################
 if [ "$use_pywal" = true ]; then
   sh $SCRIPTPATH/scripts/wal.sh
-else
-  # Static theme — theme.toml is already loaded above; just set the wallpaper.
-  if [ -x "$(command -v feh)" ]; then
-    #feh --bg-fill "$SCRIPTPATH/backgrounds/kiro1.jpg"
-    feh --bg-fill /usr/share/backgrounds/kiro/kiro-wallpaper.jpg &
-  fi
+fi
+
+# Default wallpaper — always the branded Kiro background, regardless of the
+# pywal color toggle above. pywal only generates the colorscheme (wal.sh uses
+# `-n` so it never sets its own background and fights this).
+if [ -x "$(command -v feh)" ]; then
+  feh --bg-fill /usr/share/backgrounds/kiro/kiro-wallpaper.jpg &
 fi
 ##############################################################################
 
