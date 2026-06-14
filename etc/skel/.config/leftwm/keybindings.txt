@@ -1,7 +1,7 @@
 ###############################################################################
 #  KEYBINDINGS — leftwm
 #  Source: etc/skel/.config/leftwm/config.ron + etc/skel/.config/leftwm/sxhkd/sxhkdrc
-#  Generated: 2026.06.08 by /kiro-keybindings-all-twms-xfce — DO NOT EDIT BY HAND
+#  Generated: 2026.06.14 by /kiro-create-keybindings — DO NOT EDIT BY HAND
 ###############################################################################
 
 ── 1. Applications & Launchers ───────────────────────────────────────────────
@@ -10,7 +10,6 @@
   ctrl + alt + Return       alacritty (terminal)
   ctrl + alt + t            alacritty (terminal)
   F12                       xfce4-terminal (drop-down terminal)
-  super + KP_Enter          urxvt (terminal)
   ctrl + alt + End          alacritty -e btop (system monitor)
   super + Shift + Return    thunar (file manager)
   super + F8                thunar (file manager)

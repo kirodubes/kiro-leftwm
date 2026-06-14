@@ -82,11 +82,6 @@ super + m
 super + Escape
     xkill
 
-#Keyboard dependent
-#urxvt
-super + KP_Enter
-	urxvt
-
 #powermenu
 super + shift + x
     edu-powermenu
@@ -184,13 +179,6 @@ ctrl + alt + v
 #Xfce4-appfinder
 ctrl + alt + a
     xfce4-appfinder
-
-
-#Keyboard dependent
-#urxvt
-#ctrl + alt + KP_Enter
-#     urxvt
-
 
 #################################################################
 # ALT + ... KEYS
