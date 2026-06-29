@@ -126,11 +126,11 @@ ctrl + alt + End
 
 #File-Manager
 ctrl + alt + b
-     thunar
+     brave --password-store=basic
 
-#Catfish
+#chromium
 ctrl + alt + c
-     catfish
+     chromium -no-default-browser-check
 
 #Chromium
 ctrl + alt + g
@@ -150,35 +150,35 @@ ctrl + alt + k
 
 #archlinux-logout
 ctrl + alt + l
-    archlinux-logout
+    archlinux-logout --settings
 
 #Pamac-manager
 ctrl + alt + p
     pamac-manager
 
-#Xfce4-settings-manager
+#mintstick
 ctrl + alt + m
-     xfce4-settings-manager
+     mintstick -m iso
 
 #Pulse Audio Control
 ctrl + alt + u
      pavucontrol
 
-#Rofi theme selector
+#archlinux-betterlockscreen
 ctrl + alt + r
-  rofi-theme-selector
+  archlinux-betterlockscreen
 
-#Spotify
+#fish-tweak-tool
 ctrl + alt + s
-   spotify
+   fish-tweak-tool
 
 #Vivaldi
 ctrl + alt + v
     vivaldi-stable
 
-#Xfce4-appfinder
+#alacritty-tweak-tool
 ctrl + alt + a
-    xfce4-appfinder
+    alacritty-tweak-tool
 
 #################################################################
 # ALT + ... KEYS
@@ -288,15 +288,15 @@ super + ctrl + Print
 
 #Raises volume
 XF86AudioRaiseVolume
-    amixer set Master 10%+
+    pamixer -i 10
 
 #Lowers volume
 XF86AudioLowerVolume
-    amixer set Master 10%-
+    pamixer -d 10
 
 #Mute
 XF86AudioMute
-    amixer -D pulse set Master 1+ toggle
+    pamixer -t
 
 #Playerctl works for Pragha, Spotify and others
 #Delete the line for playerctl if you want to use mpc
@@ -339,6 +339,82 @@ XF86MonBrightnessDown
 super + y
     polybar-msg cmd toggle
 
+
+#archlinux-logout
+super + x
+	archlinux-logout
+
+#alacritty
+super + t
+	alacritty
+
+#alacritty
+super + Return
+	alacritty
+
+#xkill
+super + shift + Escape
+	xkill
+
+#alacritty
+super + KP_Enter
+	alacritty
+
+#thunar
+super + shift + Return
+	thunar
+
+#thunar
+super + shift + KP_Enter
+	thunar
+
+#alacritty-tweak-tool
+ctrl + alt + q
+	alacritty-tweak-tool
+
+#mintstick
+ctrl + alt + ,
+	mintstick -m iso
+
+#rofi-theme-selector
+alt + r
+	rofi-theme-selector
+
+#fastfetch-tweak-tool
+ctrl + alt + z
+	fastfetch-tweak-tool
+
+#fastfetch-tweak-tool
+ctrl + alt + w
+	fastfetch-tweak-tool
+
+#alacritty
+ctrl + alt + Return
+	alacritty
+
+#alacritty
+ctrl + alt + t
+	alacritty
+
+#variety
+super + ctrl + space
+	variety --selector
+
+#alacritty
+F12
+	alacritty
+
+#opera
+ctrl + alt + o
+	opera
+
+#update-system
+ctrl + alt + shift + F1
+	update-system
+
+#update-system
+super + ctrl + shift + F1
+	update-system
 #################################################################
 #################################################################
 ##################   DESKTOP SPECIFIC    ########################
