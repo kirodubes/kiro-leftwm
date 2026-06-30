@@ -29,13 +29,9 @@ ln -s $SCRIPTPATH/down /tmp/leftwm-theme-down
 # Must run before the polybar loop so bars get the correct geometry.
 ~/.config/leftwm/scripts/monitor-layout.sh
 
-#change your keyboard if you need it - azerty or qwerty
-#setxkbmap -layout be
-keybLayout=$(setxkbmap -v | awk -F "+" '/symbols/ {print $2}')
-
-if [ "$keybLayout" = "be" ]; then
-  cp ~/.config/leftwm/config-azerty.ron ~/.config/leftwm/config.ron
-fi
+# Keyboard layout: adapt config.ron tag bindings to the active layout
+# (QWERTY default; Belgian/AZERTY remaps the number row). Auto-detects.
+~/.config/leftwm/scripts/set-keyboard-layout.sh
 
 ########## Colors: pywal (dynamic) or static theme.toml #######################
 if [ "$use_pywal" = true ]; then

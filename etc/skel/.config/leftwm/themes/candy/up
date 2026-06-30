@@ -22,12 +22,9 @@ ln -s $SCRIPTPATH/down /tmp/leftwm-theme-down
 # Must run before the polybar loop so bars get the correct geometry.
 ~/.config/leftwm/scripts/monitor-layout.sh
 
-# Keyboard layout: QWERTY is the shipped default (config.ron); a Belgian (be)
-# layout auto-loads the AZERTY config. Same detect as the kiro theme.
-keybLayout=$(setxkbmap -v | awk -F "+" '/symbols/ {print $2}')
-if [ "$keybLayout" = "be" ]; then
-  cp ~/.config/leftwm/config-azerty.ron ~/.config/leftwm/config.ron
-fi
+# Keyboard layout: adapt config.ron tag bindings to the active layout
+# (QWERTY default; Belgian/AZERTY remaps the number row). Auto-detects.
+~/.config/leftwm/scripts/set-keyboard-layout.sh
 
 # keybindings daemon
 killall sxhkd 2>/dev/null

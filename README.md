@@ -12,7 +12,7 @@ LeftWM keeps its configuration as plain text under `~/.config/leftwm/`, so every
 
 Everything lands in `etc/skel/`, so a fresh user account gets a complete LeftWM desktop:
 
-- **`.config/leftwm/config.ron`** — the main config: Super as the mod key, 9 tags, sloppy focus, and the keybindings below. Also shipped as `config-qwerty.ron` (the default) and `config-azerty.ron` (BE-azerty tag-number keys); switch with `.bin/give-me-azerty-be-leftwm`.
+- **`.config/leftwm/config.ron`** — the main config: Super as the mod key, 9 tags, sloppy focus, and the keybindings below. Single hand-maintained source (QWERTY). On a Belgian/AZERTY layout the 9 tag keys are remapped in place by `scripts/set-keyboard-layout.sh` (auto-detected on theme load); force it with `.bin/give-me-azerty-be-leftwm`.
 - **candy theme** (`.config/leftwm/themes/candy`, the active theme) — a polybar bar (clock, CPU, memory, kernel, system tray), feh wallpaper, the `fastcompmgr` compositor.
 - **`.config/leftwm/sxhkd/sxhkdrc`** — extra keybindings handled by sxhkd: function-key app launchers, volume / brightness / media keys, screenshots, and wallpaper control.
 - **rofi launcher** (`.config/leftwm/launcher/`) — the application menu.

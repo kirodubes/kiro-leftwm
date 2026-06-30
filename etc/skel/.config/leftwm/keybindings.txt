@@ -1,7 +1,7 @@
 ###############################################################################
 #  KEYBINDINGS — leftwm
 #  Source: etc/skel/.config/leftwm/config.ron + etc/skel/.config/leftwm/sxhkd/sxhkdrc
-#  Generated: 2026.06.14 by /kiro-create-keybindings — DO NOT EDIT BY HAND
+#  Generated: 2026.06.29 by /kiro-keybindings-all-twms-xfce — DO NOT EDIT BY HAND
 ###############################################################################
 
 ── 1. Applications & Launchers ───────────────────────────────────────────────
@@ -9,32 +9,40 @@
   super + t                 alacritty (terminal)
   ctrl + alt + Return       alacritty (terminal)
   ctrl + alt + t            alacritty (terminal)
+  super + KP_Enter          alacritty (terminal)
   F12                       xfce4-terminal (drop-down terminal)
   ctrl + alt + End          alacritty -e btop (system monitor)
   super + Shift + Return    thunar (file manager)
   super + F8                thunar (file manager)
-  ctrl + alt + b            thunar (file manager)
-  ctrl + alt + c            catfish (file search)
+  super + Shift + KP_Enter  thunar (file manager)
+  ctrl + alt + b            brave (browser)
+  ctrl + alt + c            chromium (browser)
   super + d                 launcher.sh (rofi launcher)
   super + Shift + d         dmenu_run (app launcher)
   super + F11               rofi -show drun (fullscreen)
   super + F12               rofi -show drun
   super + r                 rofi-theme-selector
-  ctrl + alt + r            rofi-theme-selector
+  ctrl + alt + r            archlinux-betterlockscreen
+  alt + r                   rofi-theme-selector
   super + e                 code (VS Code)
   super + F2                code (VS Code)
   super + ctrl + s          kiro-keybindings
   ctrl + alt + e            archlinux-tweak-tool
   ctrl + alt + d            obs
   ctrl + alt + p            pamac-manager (package manager)
-  ctrl + alt + m            xfce4-settings-manager
-  ctrl + alt + a            xfce4-appfinder
+  ctrl + alt + m            mintstick (USB image writer)
+  ctrl + alt + ,            mintstick (USB image writer)
+  ctrl + alt + a            alacritty-tweak-tool
+  ctrl + alt + q            alacritty-tweak-tool
+  ctrl + alt + z            fastfetch-tweak-tool
+  ctrl + alt + w            fastfetch-tweak-tool
   alt + F2                  xfce4-appfinder (collapsed)
   alt + F3                  xfce4-appfinder
   ctrl + shift + Escape     xfce4-taskmanager
   super + F1                vivaldi-stable (browser)
   ctrl + alt + v            vivaldi-stable (browser)
   ctrl + alt + g            chromium (browser)
+  ctrl + alt + o            opera
   ctrl + alt + i            kiro-iso-builder (ISO builder)
   ctrl + alt + f            firefox (browser)
   super + F3                inkscape
@@ -45,7 +53,7 @@
   super + F9                virt-manager (virtual machine manager)
   super + m                 lollypop (music player)
   super + F10               spotify
-  ctrl + alt + s            spotify
+  ctrl + alt + s            fish-tweak-tool
 
 ── 2. Window Management ───────────────────────────────────────────────────────
   super + q                 close focused window
@@ -58,6 +66,7 @@
   super + Shift + Up        move window in stack (up)
   super + Shift + Down      move window in stack (down)
   super + Escape            xkill (force-kill a window)
+  super + Shift + Escape    xkill (force-kill a window)
 
 ── 3. Workspaces / Tags / Groups ─────────────────────────────────────────────
   super + 1..9              switch to tag N
@@ -90,8 +99,8 @@
   super + Shift + Right     move window to next workspace
 
 ── 6. Multimedia & Hardware ───────────────────────────────────────────────────
-  XF86AudioRaiseVolume      volume +10% (amixer)
-  XF86AudioLowerVolume      volume -10% (amixer)
+  XF86AudioRaiseVolume      volume +10% (pamixer)
+  XF86AudioLowerVolume      volume -10% (pamixer)
   XF86AudioMute             toggle mute
   XF86AudioPlay             play / pause (playerctl)
   XF86AudioNext             next track (playerctl)
@@ -109,6 +118,7 @@
   alt + Right               variety: next wallpaper
   alt + Up                  variety: pause slideshow
   alt + Down                variety: resume slideshow
+  super + ctrl + space      variety: wallpaper selector
   alt + shift + t           variety: trash wallpaper + pywal
   alt + shift + n           variety: next wallpaper + pywal
   alt + shift + p           variety: previous wallpaper + pywal

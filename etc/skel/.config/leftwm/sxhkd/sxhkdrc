@@ -408,13 +408,6 @@ F12
 ctrl + alt + o
 	opera
 
-#update-system
-ctrl + alt + shift + F1
-	update-system
-
-#update-system
-super + ctrl + shift + F1
-	update-system
 #################################################################
 #################################################################
 ##################   DESKTOP SPECIFIC    ########################
