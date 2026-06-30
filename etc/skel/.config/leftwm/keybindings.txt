@@ -1,7 +1,7 @@
 ###############################################################################
 #  KEYBINDINGS — leftwm
 #  Source: etc/skel/.config/leftwm/config.ron + etc/skel/.config/leftwm/sxhkd/sxhkdrc
-#  Generated: 2026.06.29 by /kiro-keybindings-all-twms-xfce — DO NOT EDIT BY HAND
+#  Generated: 2026.06.30 by /kiro-keybindings-all — DO NOT EDIT BY HAND
 ###############################################################################
 
 ── 1. Applications & Launchers ───────────────────────────────────────────────
@@ -12,17 +12,16 @@
   super + KP_Enter          alacritty (terminal)
   F12                       xfce4-terminal (drop-down terminal)
   ctrl + alt + End          alacritty -e btop (system monitor)
-  super + Shift + Return    thunar (file manager)
+  super + shift + Return    thunar (file manager)
   super + F8                thunar (file manager)
-  super + Shift + KP_Enter  thunar (file manager)
+  super + shift + KP_Enter  thunar (file manager)
   ctrl + alt + b            brave (browser)
   ctrl + alt + c            chromium (browser)
   super + d                 launcher.sh (rofi launcher)
-  super + Shift + d         dmenu_run (app launcher)
+  super + shift + d         dmenu_run (app launcher)
   super + F11               rofi -show drun (fullscreen)
   super + F12               rofi -show drun
   super + r                 rofi-theme-selector
-  ctrl + alt + r            archlinux-betterlockscreen
   alt + r                   rofi-theme-selector
   super + e                 code (VS Code)
   super + F2                code (VS Code)
@@ -36,6 +35,7 @@
   ctrl + alt + q            alacritty-tweak-tool
   ctrl + alt + z            fastfetch-tweak-tool
   ctrl + alt + w            fastfetch-tweak-tool
+  ctrl + alt + s            fish-tweak-tool
   alt + F2                  xfce4-appfinder (collapsed)
   alt + F3                  xfce4-appfinder
   ctrl + shift + Escape     xfce4-taskmanager
@@ -53,40 +53,39 @@
   super + F9                virt-manager (virtual machine manager)
   super + m                 lollypop (music player)
   super + F10               spotify
-  ctrl + alt + s            fish-tweak-tool
 
 ── 2. Window Management ───────────────────────────────────────────────────────
   super + q                 close focused window
-  super + Shift + q         close focused window
+  super + shift + q         close focused window
   super + f                 toggle fullscreen
   super + k                 focus next window
   super + j                 focus previous window
-  super + Shift + k         move window in stack (up)
-  super + Shift + j         move window in stack (down)
-  super + Shift + Up        move window in stack (up)
-  super + Shift + Down      move window in stack (down)
+  super + shift + k         move window in stack (up)
+  super + shift + j         move window in stack (down)
+  super + shift + Up        move window in stack (up)
+  super + shift + Down      move window in stack (down)
   super + Escape            xkill (force-kill a window)
-  super + Shift + Escape    xkill (force-kill a window)
+  super + shift + Escape    xkill (force-kill a window)
 
-── 3. Workspaces / Tags / Groups ─────────────────────────────────────────────
+── 3. Workspaces / Tags / Groups ──────────────────────────────────────────────
   super + 1..9              switch to tag N
-  super + Shift + 1..9      send window to tag N
+  super + shift + 1..9      send window to tag N
   super + Down              focus next tag
   super + Up                focus previous tag
   super + Tab               focus next tag
-  super + Shift + Tab       focus previous tag
+  super + shift + Tab       focus previous tag
   alt + Tab                 focus next tag
-  alt + Shift + Tab         focus previous tag
+  alt + shift + Tab         focus previous tag
   ctrl + alt + Right        focus next tag
   ctrl + alt + Left         focus previous tag
   ctrl + alt + Down         focus next tag
   ctrl + alt + Up           focus previous tag
   super + w                 swap tags
-  super + Shift + w         move to last workspace
+  super + shift + w         move to last workspace
 
 ── 4. Layout & Tiling ─────────────────────────────────────────────────────────
   super + space             next layout
-  super + Shift + space     previous layout
+  super + shift + space     previous layout
   super + ctrl + Up         next layout
   super + ctrl + Down       previous layout
 
@@ -95,8 +94,8 @@
   super + Right             swap screens
   super + l                 focus next workspace
   super + h                 focus previous workspace
-  super + Shift + Left      move window to next workspace
-  super + Shift + Right     move window to next workspace
+  super + shift + Left      move window to next workspace
+  super + shift + Right     move window to next workspace
 
 ── 6. Multimedia & Hardware ───────────────────────────────────────────────────
   XF86AudioRaiseVolume      volume +10% (pamixer)
@@ -134,9 +133,10 @@
 ── 8. System & Session ────────────────────────────────────────────────────────
   super + x                 archlinux-logout
   ctrl + alt + k            archlinux-logout
-  ctrl + alt + l            archlinux-logout
-  super + Shift + x         edu-powermenu
-  super + Shift + r         reload leftwm
+  ctrl + alt + l            archlinux-logout (settings)
+  ctrl + alt + r            archlinux-betterlockscreen (lock screen)
+  super + shift + x         edu-powermenu
+  super + shift + r         reload leftwm
   super + shift + s         reload sxhkd
   super + y                 toggle polybar
   super + g                 toggle compositor (fastcompmgr)
