@@ -7,6 +7,7 @@
 - The CB button on the top bar works again, with the clicks swapped. Left click now picks a random wallpaper from the theme's `backgrounds/` folder (and regenerates the pywal colours when it is installed); right click goes back to the branded Kiro default. Before, left click only re-applied the default, so nothing visibly changed, and right click failed: it read a personal `~/Insync/Apps/Desktoppr` folder no user has.
 - In VirtualBox, leftwm now uses the whole screen. The session started at 1024x768 and the VM resized the display only after login, but leftwm kept the start-up size: tiled windows, the fullscreen archlinux-logout and the wallpaper stayed in a 1024x768 corner. Worse, `monitor-layout.sh` ran `xrandr --auto`, which put a single screen back at its preferred mode (1024x768 in VirtualBox) on every theme reload.
 - `monitor-layout.sh` no longer names a specific machine: the per-hostname monitor order is now a commented example with a placeholder hostname.
+- leftwm now applies a saved arandr layout from `~/.screenlayout/<username>.sh` at login, like the other Kiro TWMs. Without that file it arranges the screens itself, as before.
 
 ### Technical Details
 - `foreground = ${xrdb:color7:#222}` → `${xrdb:color7:#e1e4e9}` in both bar configs. `#e1e4e9` is the color7 pywal generates from the Kiro wallpaper, so the bar looks the same with or without pywal. When pywal runs, xrdb's color7 still wins.
@@ -14,6 +15,7 @@
 - `monitor-layout.sh`, one screen: when the output already has a mode it only gets `--primary`; `--auto` is kept for an output that is off. Real hardware already has its native mode at login, so nothing changes there.
 - Theme `up`: in a VM (`systemd-detect-virt --vm`) a background loop compares the `xrandr` screen size with the extent of leftwm's workspaces (`leftwm-state`) for up to 30 s. On a mismatch it repaints the default wallpaper with feh, then runs `leftwm command SoftReload` once. The feh step comes first because the reload can end the loop. A marker `$XDG_RUNTIME_DIR/leftwm-vm-resize-<leftwm pid>` allows one reload per leftwm process, since the reload may run `up` again.
 - `wall.sh` no longer loads pywal's `theme.toml`: `up` notes it turns the borders red.
+- `monitor-layout.sh` runs `~/.screenlayout/$(whoami).sh` and exits when the file exists. It still runs from `up` before the polybar loop, so bar geometry is unaffected. Tested in the KIB VM with and without the file.
 
 ### Files Modified
 - `etc/skel/.config/leftwm/themes/kiro/polybar/polybartop.config`

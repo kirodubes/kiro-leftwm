@@ -9,6 +9,7 @@ set -euo pipefail
 #
 # Purpose:
 #   Detect connected monitors and arrange them left-to-right.
+#   - ~/.screenlayout/<username>.sh exists : run that saved layout, nothing else.
 #   - 0 or 1 screen : enable the single output as primary (or do nothing).
 #   - 2+ screens    : place known outputs in PREFERRED_ORDER (left to right),
 #                     then append any other connected outputs after them.
@@ -31,6 +32,13 @@ PREFERRED_ORDER=()
 # if [ "$(hostname)" = "mybox" ]; then
 #     PREFERRED_ORDER=(HDMI-2 DP-1)
 # fi
+
+# A saved arandr/xrandr layout named after the current user wins, as in the
+# other Kiro TWMs. Generate it with arandr, save it to ~/.screenlayout/<username>.sh
+if [ -f "$HOME/.screenlayout/$(whoami).sh" ]; then
+    sh "$HOME/.screenlayout/$(whoami).sh"
+    exit 0
+fi
 
 # Connected outputs, in the order xrandr reports them.
 mapfile -t CONNECTED < <(xrandr --query | awk '/ connected/ {print $1}')
