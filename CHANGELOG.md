@@ -4,13 +4,17 @@
 
 ### What Changed
 - The polybar text fallback colour is now light grey (`#e1e4e9`) instead of `#222`. Without pywal no colours reach xrdb, so both bars drew their icons and text near-black on the black bar and the top-left launcher, CB, firefox, mintstick and screenshot icons were all but invisible. Seen on a Kiro test ISO built without `python-pywal`.
+- The CB button on the top bar works again, with the clicks swapped. Left click now picks a random wallpaper from the theme's `backgrounds/` folder (and recolours the bar with pywal when it is installed); right click goes back to the branded Kiro default. Before, left click only re-applied the default, so nothing visibly changed, and right click failed: it read a personal `~/Insync/Apps/Desktoppr` folder no user has.
 
 ### Technical Details
 - `foreground = ${xrdb:color7:#222}` → `${xrdb:color7:#e1e4e9}` in both bar configs. `#e1e4e9` is the color7 pywal generates from the Kiro wallpaper, so the bar looks the same with or without pywal. When pywal runs, xrdb's color7 still wins.
+- `scripts/wall.sh` rewritten: random pick from `~/.config/leftwm/themes/current/backgrounds/*`, set with `feh --no-fehbg --bg-fill`; its pywal branch now matches `wal.sh` (`color.leftwm-theme.toml` template, `theme.toml`, `wal -n`), replacing the stale `.ron` files that no longer exist. `modules.ini` `[module/changebackground]`: click-left → `wall.sh`, click-right → `wal.sh`. Tested in the KIB VM: left click logic set `kiro2.jpg`.
 
 ### Files Modified
 - `etc/skel/.config/leftwm/themes/kiro/polybar/polybartop.config`
 - `etc/skel/.config/leftwm/themes/kiro/polybar/polybarbottom.config`
+- `etc/skel/.config/leftwm/themes/kiro/scripts/wall.sh`
+- `etc/skel/.config/leftwm/themes/kiro/polybar/modules.ini`
 
 ## 2026.09.27
 

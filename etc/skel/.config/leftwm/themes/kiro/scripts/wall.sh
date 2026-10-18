@@ -1,32 +1,29 @@
 #!/usr/bin/env bash
 
+# CB left click: a random wallpaper from the theme's own backgrounds folder.
+# With pywal installed the bar and borders are recoloured from it too; the
+# right click (wal.sh) goes back to the branded Kiro default.
+
+backgrounds=("$HOME"/.config/leftwm/themes/current/backgrounds/*)
+[ -f "${backgrounds[0]}" ] || exit 0
+wallpaper="${backgrounds[$((RANDOM % ${#backgrounds[@]}))]}"
+
+if [ -x "$(command -v feh)" ]; then
+  feh --no-fehbg --bg-fill "$wallpaper"
+fi
 
 ### Check if python-pywal is installed
 ### Check if dir exists and copy the template in its proper place
 if [ -x "$(command -v wal)" ]; then
-  if [ ! -d $HOME/.config/wal/templates ] ; then
-    mkdir $HOME/.config/wal/templates &&
-    cp $HOME/.config/leftwm/themes/current/template-wal/color.leftwm-theme.ron  $HOME/.config/wal/templates
+  if [ ! -d "$HOME"/.config/wal/templates ] ; then
+    mkdir -p "$HOME"/.config/wal/templates &&
+    cp "$HOME"/.config/leftwm/themes/current/template-wal/color.leftwm-theme.toml "$HOME"/.config/wal/templates
   elif
-    [ ! -f $HOME/.config/wal/templates/color.leftwm-theme.ron ] ; then
-        cp -f $HOME/.config/leftwm/themes/current/template-wal/color.leftwm-theme.ron  $HOME/.config/wal/templates
+    [ ! -f "$HOME"/.config/wal/templates/color.leftwm-theme.toml ] ; then
+        cp -f "$HOME"/.config/leftwm/themes/current/template-wal/color.leftwm-theme.toml "$HOME"/.config/wal/templates
   fi
-    my_array=($HOME/Insync/Apps/Desktoppr/*)
-        ####my_array=(/usr/share/backgrounds/*)
-
-     wal -i ${my_array[$(( $RANDOM % ${#my_array[@]}))]} -a 80
-    cat ~/.cache/wal/color.leftwm-theme.ron &&
-    ####bat ~/.cache/wal/color.leftwm-theme.ron &&
-    cp -f ~/.cache/wal/color.leftwm-theme.ron $HOME/.config/leftwm/themes/current/theme.ron &&
-
-    leftwm command "LoadTheme $HOME/.config/leftwm/themes/current/theme.ron"
-
-else
-
-  # Set background
-  if [ -x "$(command -v feh)" ]; then
-    feh --randomize --bg-fill $HOME/Insync/Apps/Desktoppr/*
-        ####feh --randomize --bg-fill /usr/share/backgrounds/*
-
-  fi
+    # `-n`: feh above already set the wallpaper, wal only builds the colours.
+    wal -n -i "$wallpaper" -a 80
+    cp -f ~/.cache/wal/color.leftwm-theme.toml "$HOME"/.config/leftwm/themes/current/theme.toml &&
+    leftwm command "LoadTheme $HOME/.config/leftwm/themes/current/theme.toml"
 fi
