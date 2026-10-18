@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 2026.10.18
+
+### What Changed
+- The polybar text fallback colour is now light grey (`#e1e4e9`) instead of `#222`. Without pywal no colours reach xrdb, so both bars drew their icons and text near-black on the black bar and the top-left launcher, CB, firefox, mintstick and screenshot icons were all but invisible. Seen on a Kiro test ISO built without `python-pywal`.
+
+### Technical Details
+- `foreground = ${xrdb:color7:#222}` → `${xrdb:color7:#e1e4e9}` in both bar configs. `#e1e4e9` is the color7 pywal generates from the Kiro wallpaper, so the bar looks the same with or without pywal. When pywal runs, xrdb's color7 still wins.
+
+### Files Modified
+- `etc/skel/.config/leftwm/themes/kiro/polybar/polybartop.config`
+- `etc/skel/.config/leftwm/themes/kiro/polybar/polybarbottom.config`
+
 ## 2026.09.27
 
 ### What Changed
