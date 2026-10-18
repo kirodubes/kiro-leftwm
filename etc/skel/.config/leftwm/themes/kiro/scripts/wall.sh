@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 # CB left click: a random wallpaper from the theme's own backgrounds folder.
-# With pywal installed the bar and borders are recoloured from it too; the
-# right click (wal.sh) goes back to the branded Kiro default.
+# With pywal installed the colours are regenerated from it too (open terminals
+# follow at once, the bar on its next start); the right click (wal.sh) goes
+# back to the branded Kiro default.
 
 backgrounds=("$HOME"/.config/leftwm/themes/current/backgrounds/*)
 [ -f "${backgrounds[0]}" ] || exit 0
@@ -23,7 +24,6 @@ if [ -x "$(command -v wal)" ]; then
         cp -f "$HOME"/.config/leftwm/themes/current/template-wal/color.leftwm-theme.toml "$HOME"/.config/wal/templates
   fi
     # `-n`: feh above already set the wallpaper, wal only builds the colours.
+    # No LoadTheme of pywal's theme.toml: it turns the borders red (see `up`).
     wal -n -i "$wallpaper" -a 80
-    cp -f ~/.cache/wal/color.leftwm-theme.toml "$HOME"/.config/leftwm/themes/current/theme.toml &&
-    leftwm command "LoadTheme $HOME/.config/leftwm/themes/current/theme.toml"
 fi

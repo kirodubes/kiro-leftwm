@@ -26,19 +26,25 @@ set -euo pipefail
 # connected, in xrandr's own order. Outputs not listed are appended after the
 # listed ones. Override per machine via the hostname check below.
 PREFERRED_ORDER=()
-if [ "$(hostname)" = "hq" ]; then
-    # This box: HDMI-2 is physically on the LEFT, DP-1 on the RIGHT, but X
-    # auto-detects them swapped — pin the correct order.
-    PREFERRED_ORDER=(HDMI-2 DP-1)
-fi
+# Example: HDMI-2 is physically on the LEFT, DP-1 on the RIGHT, but X
+# auto-detects them swapped — pin the correct order for that one box.
+# if [ "$(hostname)" = "mybox" ]; then
+#     PREFERRED_ORDER=(HDMI-2 DP-1)
+# fi
 
 # Connected outputs, in the order xrandr reports them.
 mapfile -t CONNECTED < <(xrandr --query | awk '/ connected/ {print $1}')
 
-# Single (or no) monitor: enable the one we have as primary, then done.
+# Single (or no) monitor: make the one we have primary, then done. Keep the
+# mode it already has: --auto would reset it to the preferred mode, which in
+# VirtualBox is 1024x768 and undoes the VM's own resize on every theme reload.
 if [ "${#CONNECTED[@]}" -le 1 ]; then
     if [ "${#CONNECTED[@]}" -eq 1 ]; then
-        xrandr --output "${CONNECTED[0]}" --auto --primary
+        if xrandr --query | grep -qE "^${CONNECTED[0]} connected( primary)? [0-9]+x[0-9]+\+"; then
+            xrandr --output "${CONNECTED[0]}" --primary
+        else
+            xrandr --output "${CONNECTED[0]}" --auto --primary
+        fi
     fi
     exit 0
 fi

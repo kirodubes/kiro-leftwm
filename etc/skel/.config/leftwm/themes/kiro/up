@@ -88,3 +88,29 @@ do
   monitor=${monitor_at_x[$x]} width=$(( width - 16 )) polybar -c "$SCRIPTPATH"/polybar/polybarbottom.config $barname &> /dev/null &
   let index=index+1
 done
+
+# VirtualBox resizes the screen only after login, and leftwm keeps the size it
+# saw at start-up: tiled windows, fullscreen apps (archlinux-logout) and the
+# wallpaper stay in a 1024x768 corner. In a VM, reload once per leftwm process
+# when the real screen and leftwm's workspaces disagree. The reload re-runs this
+# script; the marker stops it from reloading again.
+vm_marker="${XDG_RUNTIME_DIR:-/tmp}/leftwm-vm-resize-$(pgrep -x leftwm | head -1)"
+if systemd-detect-virt --vm -q && [ ! -e "$vm_marker" ]; then
+  (
+    for _ in $(seq 15); do
+      sleep 2
+      screen=$(xrandr | sed -n 's/.* current \([0-9]*\) x \([0-9]*\),.*/\1 \2/p')
+      extent=$(leftwm-state -q -n -t <(printf '%s\n' '{% for workspace in workspaces %}' \
+        '{{workspace.x}} {{workspace.y}} {{workspace.w}} {{workspace.h}}' '{% endfor %}') |
+        awk 'NF==4 { if ($1+$3>w) w=$1+$3; if ($2+$4>h) h=$2+$4 } END { print w, h }')
+      if [ -n "$screen" ] && [ "$screen" != "$extent" ]; then
+        touch "$vm_marker"
+        # Repaint the wallpaper at the real size first: the one from start-up is
+        # tiled, and the reload can end this subshell before it gets further.
+        [ -x "$(command -v feh)" ] && feh --no-fehbg --bg-fill /usr/share/backgrounds/kiro/kiro-wallpaper.jpg
+        leftwm command SoftReload
+        exit
+      fi
+    done
+  ) &
+fi

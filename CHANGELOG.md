@@ -4,17 +4,24 @@
 
 ### What Changed
 - The polybar text fallback colour is now light grey (`#e1e4e9`) instead of `#222`. Without pywal no colours reach xrdb, so both bars drew their icons and text near-black on the black bar and the top-left launcher, CB, firefox, mintstick and screenshot icons were all but invisible. Seen on a Kiro test ISO built without `python-pywal`.
-- The CB button on the top bar works again, with the clicks swapped. Left click now picks a random wallpaper from the theme's `backgrounds/` folder (and recolours the bar with pywal when it is installed); right click goes back to the branded Kiro default. Before, left click only re-applied the default, so nothing visibly changed, and right click failed: it read a personal `~/Insync/Apps/Desktoppr` folder no user has.
+- The CB button on the top bar works again, with the clicks swapped. Left click now picks a random wallpaper from the theme's `backgrounds/` folder (and regenerates the pywal colours when it is installed); right click goes back to the branded Kiro default. Before, left click only re-applied the default, so nothing visibly changed, and right click failed: it read a personal `~/Insync/Apps/Desktoppr` folder no user has.
+- In VirtualBox, leftwm now uses the whole screen. The session started at 1024x768 and the VM resized the display only after login, but leftwm kept the start-up size: tiled windows, the fullscreen archlinux-logout and the wallpaper stayed in a 1024x768 corner. Worse, `monitor-layout.sh` ran `xrandr --auto`, which put a single screen back at its preferred mode (1024x768 in VirtualBox) on every theme reload.
+- `monitor-layout.sh` no longer names a specific machine: the per-hostname monitor order is now a commented example with a placeholder hostname.
 
 ### Technical Details
 - `foreground = ${xrdb:color7:#222}` → `${xrdb:color7:#e1e4e9}` in both bar configs. `#e1e4e9` is the color7 pywal generates from the Kiro wallpaper, so the bar looks the same with or without pywal. When pywal runs, xrdb's color7 still wins.
-- `scripts/wall.sh` rewritten: random pick from `~/.config/leftwm/themes/current/backgrounds/*`, set with `feh --no-fehbg --bg-fill`; its pywal branch now matches `wal.sh` (`color.leftwm-theme.toml` template, `theme.toml`, `wal -n`), replacing the stale `.ron` files that no longer exist. `modules.ini` `[module/changebackground]`: click-left → `wall.sh`, click-right → `wal.sh`. Tested in the KIB VM: left click logic set `kiro2.jpg`.
+- `scripts/wall.sh` rewritten: random pick from `~/.config/leftwm/themes/current/backgrounds/*`, set with `feh --no-fehbg --bg-fill`; its pywal branch now uses the same `color.leftwm-theme.toml` template as `wal.sh` with `wal -n`, replacing the stale `.ron` files that no longer exist. `modules.ini` `[module/changebackground]`: click-left → `wall.sh`, click-right → `wal.sh`. Tested in the KIB VM: left click logic set `kiro2.jpg`.
+- `monitor-layout.sh`, one screen: when the output already has a mode it only gets `--primary`; `--auto` is kept for an output that is off. Real hardware already has its native mode at login, so nothing changes there.
+- Theme `up`: in a VM (`systemd-detect-virt --vm`) a background loop compares the `xrandr` screen size with the extent of leftwm's workspaces (`leftwm-state`) for up to 30 s. On a mismatch it repaints the default wallpaper with feh, then runs `leftwm command SoftReload` once. The feh step comes first because the reload can end the loop. A marker `$XDG_RUNTIME_DIR/leftwm-vm-resize-<leftwm pid>` allows one reload per leftwm process, since the reload may run `up` again.
+- `wall.sh` no longer loads pywal's `theme.toml`: `up` notes it turns the borders red.
 
 ### Files Modified
 - `etc/skel/.config/leftwm/themes/kiro/polybar/polybartop.config`
 - `etc/skel/.config/leftwm/themes/kiro/polybar/polybarbottom.config`
 - `etc/skel/.config/leftwm/themes/kiro/scripts/wall.sh`
 - `etc/skel/.config/leftwm/themes/kiro/polybar/modules.ini`
+- `etc/skel/.config/leftwm/themes/kiro/up`
+- `etc/skel/.config/leftwm/scripts/monitor-layout.sh`
 
 ## 2026.09.27
 
