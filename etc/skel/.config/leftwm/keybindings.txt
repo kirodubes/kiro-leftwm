@@ -1,7 +1,7 @@
 ###############################################################################
 #  KEYBINDINGS — leftwm
 #  Source: etc/skel/.config/leftwm/config.ron + etc/skel/.config/leftwm/sxhkd/sxhkdrc
-#  Generated: 2026.06.30
+#  Generated: 2026.10.19
 #  Reference for the default bindings. Changed yours? Edit this file to match.
 ###############################################################################
 
@@ -54,6 +54,12 @@
   super + F9                virt-manager (virtual machine manager)
   super + m                 lollypop (music player)
   super + F10               spotify
+  super + ctrl + a          pavucontrol
+  super + ctrl + shift + a  alacritty -e claude (AI agent)
+  super + shift + f         thunar (file manager)
+  super + shift + b         vivaldi-stable (browser)
+  super + shift + n         code (editor)
+  super + shift + m         spotify
 
 ── 2. Window Management ───────────────────────────────────────────────────────
   super + q                 close focused window
@@ -124,6 +130,9 @@
   alt + shift + p           variety: previous wallpaper + pywal
   alt + shift + f           variety: favorite wallpaper + pywal
   alt + shift + u           pywal: update colors from wallpaper
+  XF86AudioMicMute          toggle microphone mute
+  alt + XF86AudioRaiseVolume  raise volume by 1%
+  alt + XF86AudioLowerVolume  lower volume by 1%
 
 ── 7. Screenshots ─────────────────────────────────────────────────────────────
   Print                     scrot full screen → Pictures
@@ -141,3 +150,4 @@
   super + shift + s         reload sxhkd
   super + y                 toggle polybar
   super + g                 toggle compositor (fastcompmgr)
+  super + ctrl + l          archlinux-betterlockscreen (lock screen)

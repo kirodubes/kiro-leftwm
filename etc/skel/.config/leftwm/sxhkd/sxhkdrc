@@ -408,6 +408,48 @@ F12
 ctrl + alt + o
 	opera
 
+
+
+#pavucontrol
+super + ctrl + a
+	pavucontrol
+
+#archlinux-betterlockscreen
+super + ctrl + l
+	archlinux-betterlockscreen
+
+#AI agent
+super + ctrl + shift + a
+	alacritty -e claude
+
+#thunar
+super + shift + f
+	thunar
+
+#vivaldi-stable
+super + shift + b
+	vivaldi-stable
+
+#code
+super + shift + n
+	code
+
+#spotify
+super + shift + m
+	spotify
+
+
+#pamixer
+XF86AudioMicMute
+	pamixer --default-source -t
+
+#pamixer
+alt + XF86AudioRaiseVolume
+	pamixer -i 1
+
+#pamixer
+alt + XF86AudioLowerVolume
+	pamixer -d 1
 #################################################################
 #################################################################
 ##################   DESKTOP SPECIFIC    ########################
