@@ -84,7 +84,7 @@ super + Escape
 
 #powermenu
 super + shift + x
-    edu-powermenu
+    kiro-powermenu
 
 #################################################################
 # SUPER + SHIFT KEYS

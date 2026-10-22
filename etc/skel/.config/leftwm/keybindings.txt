@@ -145,7 +145,7 @@
   ctrl + alt + k            archlinux-logout
   ctrl + alt + l            archlinux-logout (settings)
   ctrl + alt + r            archlinux-betterlockscreen (lock screen)
-  super + shift + x         edu-powermenu
+  super + shift + x         kiro-powermenu
   super + shift + r         reload leftwm
   super + shift + s         reload sxhkd
   super + y                 toggle polybar
